@@ -1,12 +1,11 @@
 import { dodopayments } from "../../../../lib/dodopayments";
 import { NextResponse } from "next/server";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, db } from "@/lib/firebase";
 
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
     const productId = searchParams.get("productId");
+    const firebaseUserId = searchParams.get("firebaseUserId");
 
     if (typeof productId !== "string" || productId.trim() === "") {
       return NextResponse.json(
@@ -32,7 +31,7 @@ export async function GET(request: Request) {
         zipcode: "",
       },
       metadata: {
-        firebaseUserId: "firebase User Id",
+        firebaseUserId: firebaseUserId?.toString() as any,
       },
     });
 

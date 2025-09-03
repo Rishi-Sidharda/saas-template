@@ -19,7 +19,7 @@ export default function Pricing() {
     }
 
     let productId: string = "";
-    const firebaseUserId = user?.uid
+    const firebaseUserId = user?.uid;
 
     if (planTitle == "Starter") {
       if (billingCycle == "monthly") {
@@ -43,7 +43,7 @@ export default function Pricing() {
 
     let productType = "subscription";
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/checkout/${productType}?productId=${productId}`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/checkout/${productType}?productId=${productId}&firebaseUserId=${user.uid}`,
       {
         cache: "no-store",
       }
