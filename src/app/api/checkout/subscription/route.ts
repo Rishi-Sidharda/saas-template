@@ -21,12 +21,12 @@ export async function GET(request: Request) {
       payment_link: true,
       return_url: process.env.NEXT_PUBLIC_BASE_URL,
       customer: {
-        email: userEmail?.toString() as any, 
+        email: userEmail?.toString() as any,
         name: userEmail?.toString() as any,
       },
       billing: {
         city: "",
-        country: "US",
+        country: "IN",
         state: "",
         street: "",
         zipcode: "",
