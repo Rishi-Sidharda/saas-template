@@ -19,25 +19,24 @@ export default function Pricing() {
     }
 
     let productId: string = "";
-    const firebaseUserId = user?.uid;
 
     if (planTitle == "Starter") {
       if (billingCycle == "monthly") {
-        productId = ""; // Starter Monthly Plan ID
+        productId = "";
       } else if (billingCycle == "yearly") {
-        productId = ""; // Starter Monthly Plan ID
+        productId = "";
       }
     } else if (planTitle == "Pro") {
       if (billingCycle == "monthly") {
-        productId = "pdt_4rfLKf9G2xYhvvWH2bRPr"; // Starter Monthly Plan ID
+        productId = process.env.NEXT_PUBLIC_DODO_PRO_MONTHLY!;
       } else if (billingCycle == "yearly") {
-        productId = "pdt_QNk75gweEsCco7vKDR3Xz"; // Starter Monthly Plan ID
+        productId = process.env.NEXT_PUBLIC_DODO_PRO_YEARLY!;
       }
     } else if (planTitle == "Ultra") {
       if (billingCycle == "monthly") {
-        productId = "pdt_QngqSeYMe0BaG7eBC02TQ"; // Starter Monthly Plan ID
+        productId = process.env.NEXT_PUBLIC_DODO_ULTRA_MONTHLY!;
       } else if (billingCycle == "yearly") {
-        productId = "pdt_cNWNQJDmTFbKxobsGxI5a"; // Starter Monthly Plan ID
+        productId = process.env.NEXT_PUBLIC_DODO_ULTRA_YEARLY!;
       }
     }
 
