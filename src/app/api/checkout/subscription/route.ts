@@ -22,14 +22,14 @@ export async function GET(request: Request) {
       return_url: process.env.NEXT_PUBLIC_BASE_URL,
       customer: {
         email: userEmail?.toString() as any,
-        name: userEmail?.toString() as any,
+        name: `customer name`,
       },
       billing: {
-        city: "",
+        city: "city",
         country: "IN",
-        state: "",
-        street: "",
-        zipcode: "",
+        state: "state",
+        street: "123 Placeholder St",
+        zipcode: "000000",
       },
       metadata: {
         firebaseUserId: firebaseUserId?.toString() as any,
