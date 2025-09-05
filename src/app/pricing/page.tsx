@@ -42,7 +42,7 @@ export default function Pricing() {
 
     let productType = "subscription";
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/checkout/${productType}?productId=${productId}&firebaseUserId=${user.uid}`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/checkout/${productType}?productId=${productId}&firebaseUserId=${user.uid}&userEmail=${user.email}`,
       {
         cache: "no-store",
       }

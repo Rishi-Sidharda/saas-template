@@ -6,6 +6,7 @@ export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
     const productId = searchParams.get("productId");
     const firebaseUserId = searchParams.get("firebaseUserId");
+    const userEmail = searchParams.get("userEmail");
 
     if (typeof productId !== "string" || productId.trim() === "") {
       return NextResponse.json(
@@ -20,8 +21,8 @@ export async function GET(request: Request) {
       payment_link: true,
       return_url: process.env.NEXT_PUBLIC_BASE_URL,
       customer: {
-        email: "firebase@gmail.com", // empty so user is prompted to fill
-        name: "firebase@gmail.com",
+        email: userEmail?.toString() as any, 
+        name: userEmail?.toString() as any,
       },
       billing: {
         city: "",
